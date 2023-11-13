@@ -46,7 +46,7 @@ function TweetBox() {
         e.preventDefault();
 
         if (user?.providerData[0]?.providerId === 'password') {
-            fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+            fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setName(data[0]?.name)
@@ -78,7 +78,7 @@ function TweetBox() {
             setImageURL('')
             
             if(buy === "1"){
-                fetch(`http://localhost:5000/userPost?email=${email}`)
+                fetch(`https://twitter-clone-backend-h1kp.onrender.com/userPost?email=${email}`)
                 .then(res => res.json())
                 .then(userPosts => {
                     const today = new Date().toISOString().split('T')[0];
@@ -87,7 +87,7 @@ function TweetBox() {
                     if (userPostsToday.length >= 1) {
                         alert("Free plan allows only 1 tweet per day. Upgrade your plan to post more.");
                     } else {
-                        fetch('http://localhost:5000/post', {
+                        fetch('https://twitter-clone-backend-h1kp.onrender.com/post', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ function TweetBox() {
                 .catch(error => console.error(error));
             } else if (buy === "2") {
                 
-                fetch(`http://localhost:5000/userPost?email=${email}`)
+                fetch(`https://twitter-clone-backend-h1kp.onrender.com/userPost?email=${email}`)
                 .then(res => res.json())
                 .then(userPosts => {
                     const today = new Date().toISOString().split('T')[0];
@@ -111,7 +111,7 @@ function TweetBox() {
                     if (userPostsToday.length >= 5) {
                         alert("Silver plan allows only 5 tweet per day. Upgrade your plan to post more.");
                     } else {
-                        fetch('http://localhost:5000/post', {
+                        fetch('https://twitter-clone-backend-h1kp.onrender.com/post', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'
@@ -127,10 +127,10 @@ function TweetBox() {
                 .catch(error => console.error(error));
             }else if (buy === "3") {
                 
-                fetch(`http://localhost:5000/userPost?email=${email}`)
+                fetch(`https://twitter-clone-backend-h1kp.onrender.com/userPost?email=${email}`)
                 .then(res => res.json())
                 .then(userPosts => {
-                        fetch('http://localhost:5000/post', {
+                        fetch('https://twitter-clone-backend-h1kp.onrender.com/post', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'

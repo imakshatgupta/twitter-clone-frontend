@@ -11,7 +11,7 @@ const Premium = () => {
   // const [plan, setPlan] = React.useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+    fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setAplan(data[0]?.plan);
@@ -23,7 +23,7 @@ const Premium = () => {
   const makePaymentSilver = async () => {
     try{
     // const stripe = await loadStripe("pk_test_51O4hY9SAFIUZ4HpWQqIARd8Q3473PlKvRT4hJPcpRhpRYt1zgIObxZnbSF5SIY1gj6PV8oTMIRukMOlRVZekFi3l00fu3xrjla");
-    const res = await fetch("http://localhost:5000/create-checkout-session-silver", {
+    const res = await fetch("https://twitter-clone-backend-h1kp.onrender.com/create-checkout-session-silver", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const Premium = () => {
         plan: "2",
       };
       console.log(editedInfo);
-      fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+      fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${user?.email}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -57,7 +57,7 @@ const Premium = () => {
   const makePaymentGold = async () => {
     try{
     // const stripe = await loadStripe("pk_test_51O4hY9SAFIUZ4HpWQqIARd8Q3473PlKvRT4hJPcpRhpRYt1zgIObxZnbSF5SIY1gj6PV8oTMIRukMOlRVZekFi3l00fu3xrjla");
-    const res = await fetch("http://localhost:5000/create-checkout-session-gold", {
+    const res = await fetch("https://twitter-clone-backend-h1kp.onrender.com/create-checkout-session-gold", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -74,7 +74,7 @@ const Premium = () => {
         plan: "3",
       };
       console.log(editedInfo);
-      fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+      fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${user?.email}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

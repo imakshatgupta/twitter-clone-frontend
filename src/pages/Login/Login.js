@@ -17,7 +17,7 @@ const Login = () => {
   const [time, setTime] = React.useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+    fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setLoginAttempts(data[0]?.loginAttempts);

@@ -103,7 +103,7 @@ export default function EditProfile({ user, loggedInUser }) {
     };
 
     console.log(editedInfo);
-    fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+    fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${user?.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -132,7 +132,7 @@ export default function EditProfile({ user, loggedInUser }) {
     : [];
     const newBlockedUsername = [...existingBlockedUsernames, blockedUsername];
 
-    fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+    fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${user?.email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

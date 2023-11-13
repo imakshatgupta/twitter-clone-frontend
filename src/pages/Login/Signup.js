@@ -34,7 +34,7 @@ const Signup = () => {
                 blockedUsername : [],   
             }
 
-            fetch('http://localhost:5000/register', {
+            fetch('https://twitter-clone-backend-h1kp.onrender.com/register', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

@@ -14,7 +14,7 @@ const Badge = () => {
     const [badge, setBadge] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+        fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`)
             .then((res) => res.json())
             .then((data) => {
                 setBadge(data[0]?.badge);
@@ -28,7 +28,7 @@ const Badge = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch("http://localhost:5000/badge", {
+        const res = await fetch("https://twitter-clone-backend-h1kp.onrender.com/badge", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -47,7 +47,7 @@ const Badge = () => {
                 name: name + " ✅",
               };
             console.log(editedInfo);
-            fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
+            fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${user?.email}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",

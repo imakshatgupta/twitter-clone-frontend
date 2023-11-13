@@ -33,7 +33,7 @@ export function UserAuthContextProvider({ children }) {
         };
         console.log(editedInfo);
 
-        fetch(`http://localhost:5000/userUpdates/${email}`, {
+        fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${email}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -52,7 +52,7 @@ export function UserAuthContextProvider({ children }) {
           };
           console.log(editedInfo);
 
-          fetch(`http://localhost:5000/userUpdates/${email}`, {
+          fetch(`https://twitter-clone-backend-h1kp.onrender.com/${email}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -67,7 +67,7 @@ export function UserAuthContextProvider({ children }) {
             loginAttempts: updatedLoginAttempts,
           };
           console.log(editedInfo);
-          fetch(`http://localhost:5000/userUpdates/${email}`, {
+          fetch(`https://twitter-clone-backend-h1kp.onrender.com/${email}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -99,7 +99,7 @@ export function UserAuthContextProvider({ children }) {
               time: updatedTime,
             };
             console.log(editedInfo);
-            fetch(`http://localhost:5000/userUpdates/${email}`, {
+            fetch(`https://twitter-clone-backend-h1kp.onrender.com/userUpdates/${email}`, {
               method: "PATCH",
               headers: {
                 "content-type": "application/json",

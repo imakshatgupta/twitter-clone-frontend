@@ -15,7 +15,7 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/loggedInUser?email=${email}`);
+        const response = await fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`);
         const data = await response.json();
         setAplan(data[0]?.username);
       } catch (error) {
@@ -29,7 +29,7 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/profile?userId=${userId}`);
+        const response = await fetch(`https://twitter-clone-backend-h1kp.onrender.com/profile?userId=${userId}`);
         const data = await response.json();
         setOuser(data[0]);
       } catch (error) {
