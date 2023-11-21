@@ -5,6 +5,7 @@ import { useUserAuth } from "../../context/UserAuthContext";
 import twitterimg from "../../image/twitter.jpeg";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import "./Login.css";
+import { toast, Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,9 @@ const Login = () => {
   const [time, setTime] = React.useState("");
 
   useEffect(() => {
-    fetch(`https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`)
+    fetch(
+      `https://twitter-clone-backend-h1kp.onrender.com/loggedInUser?email=${email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLoginAttempts(data[0]?.loginAttempts);
@@ -31,12 +34,15 @@ const Login = () => {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password, loginAttempts , time);
+      await logIn(email, password, loginAttempts, time);
       navigate("/");
     } catch (err) {
       console.log(err.message);
-      alert(err.message);
-      window.location.reload();
+      toast.error(err.message);
+    } finally {
+      console.log("Resetting form fields"); // Check if this log appears in the console
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -52,6 +58,7 @@ const Login = () => {
 
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="login-container">
         <div className="image-container">
           <img className=" image" src={twitterimg} alt="twitterImage" />
@@ -68,6 +75,7 @@ const Login = () => {
                 type="email"
                 className="email"
                 placeholder="Email address"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
@@ -75,6 +83,7 @@ const Login = () => {
                 className="password"
                 type="password"
                 placeholder="Password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 

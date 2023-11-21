@@ -8,10 +8,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { toast } from "react-hot-toast";
 
 import { sendEmailNotification } from "./yourEmailService";
 const auth = getAuth();
-
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
@@ -24,7 +24,7 @@ export function UserAuthContextProvider({ children }) {
     console.log("Your account is blocked for 1 hour." , nowtime - time);
     if (loginAttempts > 4) {
       if (nowtime - time < 3600000) {
-      alert("Your account is blocked for 1 hour.");
+      toast.error("Your account is blocked for 1 hour.");
       return;
       } 
       else {
@@ -81,7 +81,7 @@ export function UserAuthContextProvider({ children }) {
                 loginAttempts + 1
               } consecutive failed login attempts with an incorrect password`,
             });
-            alert(
+            toast.error(
               ` You have done ${
                 loginAttempts + 1
               } consecutive failed login attempts with an incorrect password`
@@ -90,7 +90,7 @@ export function UserAuthContextProvider({ children }) {
             sendEmailNotification(email, {
               message: ` You have done maximum failed attempts. Your account has been blocked for 1 hour.`,
             });
-            alert(
+            toast.error(
               "You have done maximum failed attempts. Your account has been blocked for 1 hour."
             );
             const updatedTime = Date.now();
